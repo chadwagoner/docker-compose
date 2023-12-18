@@ -17,7 +17,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy_data:/data
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      caddy.email: ${EMAIL:-no-reply@example.com}
+      com.centurylinklabs.watchtower.enable: true
 
 networks:
   proxy:
