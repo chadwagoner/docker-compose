@@ -30,8 +30,8 @@ services:
       - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - adguard_conf:/conf
-      - adguard_work:/work
+      - adguard_conf:/opt/adguardhome/conf
+      - adguard_work:/opt/adguardhome/work
     labels:
       caddy: ${URL:-adguard.example.com}
       caddy.reverse_proxy: "{{upstreams 3000}}"
