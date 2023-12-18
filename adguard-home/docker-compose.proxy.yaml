@@ -35,6 +35,7 @@ services:
     labels:
       caddy: ${URL:-adguard.example.com}
       caddy.reverse_proxy: "{{upstreams 3000}}"
+      caddy.tls: "internal"
       com.centurylinklabs.watchtower.enable: true
 
 networks:
