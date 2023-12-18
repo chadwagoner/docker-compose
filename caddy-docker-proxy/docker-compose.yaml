@@ -1,7 +1,10 @@
-version: "3.7"
+version: "3"
+
 services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:latest
+    container_name: caddy-docker-proxy
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -13,7 +16,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy_data:/data
-    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
   proxy:
