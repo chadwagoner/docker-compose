@@ -5,9 +5,10 @@ services:
     image: adguard/adguardhome
     container_name: adguard
     restart: unless-stopped
-    ports:
+    network_mode: "host"
+    # ports:
       # DNS
-      - 53:53
+      # - 53:53
       # # DHCP server
       # - 67:67/udp
       # - 68:68/tcp
@@ -26,8 +27,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-    networks:
-      - proxy
+    # networks:
+    #   - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - adguard_conf:/opt/adguardhome/conf
@@ -38,9 +39,9 @@ services:
       #caddy.tls: "internal"
       com.centurylinklabs.watchtower.enable: true
 
-networks:
-  proxy:
-    external: true
+# networks:
+#   proxy:
+#     external: true
 
 volumes:
   adguard_conf:
