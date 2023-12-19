@@ -1,4 +1,4 @@
-## Watchtower
+# Watchtower
 
 ## Required Variables
 
