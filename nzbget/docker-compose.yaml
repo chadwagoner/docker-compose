@@ -12,8 +12,8 @@ services:
       PGID: 1000
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - nzbget_downloads:/downloads
-      - nzbget_data:/config
+      - downloads:/downloads
+      - data:/config
     labels:
       traefik.enable: true
       traefik.http.routers.nzbget.entrypoints: "http"
@@ -33,5 +33,5 @@ networks:
     external: true
 
 volumes:
-  nzbget_data:
-  nzbget_downloads:
+  data:
+  downloads:
